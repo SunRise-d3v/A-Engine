@@ -1,0 +1,12 @@
+C:\Users\User\source\repos\AEngine\obj\Debug\net8.0\AEngine.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\AEngine\obj\Debug\net8.0\AEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\AEngine\obj\Debug\net8.0\AEngine.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\AEngine\obj\Debug\net8.0\AEngine.AssemblyInfo.cs
+C:\Users\User\source\repos\AEngine\obj\Debug\net8.0\AEngine.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\AEngine\bin\Debug\net8.0\AEngine.deps.json
+C:\Users\User\source\repos\AEngine\bin\Debug\net8.0\AEngine.dll
+C:\Users\User\source\repos\AEngine\bin\Debug\net8.0\AEngine.pdb
+C:\Users\User\source\repos\AEngine\obj\Debug\net8.0\AEngine.dll
+C:\Users\User\source\repos\AEngine\obj\Debug\net8.0\refint\AEngine.dll
+C:\Users\User\source\repos\AEngine\obj\Debug\net8.0\AEngine.pdb
+C:\Users\User\source\repos\AEngine\obj\Debug\net8.0\ref\AEngine.dll
