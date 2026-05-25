@@ -23,9 +23,9 @@ public class Timer
 		Start = startLoaded;
 	}
 
-	public void Update() => _elapsed += Global.GameTime.ElapsedGameTime;
+	public void Update() => _elapsed += Main.GameTime.ElapsedGameTime;
 
-	public void Update(float multiplier) => _elapsed += TimeSpan.FromTicks((long)(Global.GameTime.ElapsedGameTime.Ticks * multiplier));
+	public void Update(float multiplier) => _elapsed += TimeSpan.FromTicks((long)(Main.GameTime.ElapsedGameTime.Ticks * multiplier));
 
 	public void Add(int milliseconds) => _elapsed += TimeSpan.FromMilliseconds(milliseconds);
 

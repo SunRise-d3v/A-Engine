@@ -22,5 +22,5 @@ public sealed class FixedGameTime
 		IsRunningSlowly = gameTime.IsRunningSlowly;
 	}
 
-	internal float GetElapsedSecond() => (float)Global.GameTime.ElapsedGameTime.TotalSeconds;
+	internal float GetElapsedSecond() => (float)Main.GameTime.ElapsedGameTime.TotalSeconds;
 }

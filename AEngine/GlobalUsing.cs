@@ -23,4 +23,5 @@ global using AEngine.Input;
 //global using static AEngine.Global;
 global using AEngine.UI;
 global using AEngine.Physics;
+global using static AEngine.Random;
 #endregion
