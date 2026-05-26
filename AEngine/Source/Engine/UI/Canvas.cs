@@ -3,8 +3,14 @@
 internal static class Canvas
 {
     public static SpriteFont font =
-        Global.Content.Load<SpriteFont>("Fonts/Arial");
+        Main.Content.Load<SpriteFont>("Fonts/Arial");
 
-    public static SpriteFont fpsFont =
-        Global.Content.Load<SpriteFont>("Fonts/FPSFont");
+    internal static SpriteFont fpsFont =
+        Main.Content.Load<SpriteFont>("Fonts/FPSFont");
+
+    public static Layer Background = new(0);
+    public static Layer Default = new(1);
+    public static Layer Entity = new(2);
+    public static Layer Foreground = new(3);
+    public static Layer UI = new(byte.MaxValue);
 }

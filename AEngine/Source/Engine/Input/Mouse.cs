@@ -88,7 +88,7 @@ public class Mouse
         => current == ButtonState.Released && previous == ButtonState.Pressed;
 
     private bool IsInWindow()
-        => _current.Position.X >= 0 && _current.Position.X <= Global.WindowWidth
-        && _current.Position.Y >= 0 && _current.Position.Y <= Global.WindowHeight;
+        => _current.Position.X >= 0 && _current.Position.X <= Main.WindowWidth
+        && _current.Position.Y >= 0 && _current.Position.Y <= Main.WindowHeight;
     #endregion
 }

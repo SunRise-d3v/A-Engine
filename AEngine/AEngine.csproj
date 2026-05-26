@@ -8,7 +8,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Source\PhysicsEngine\3D\" />
-    <Folder Include="Source\PhysicsEngine\1Auxiliary\3D\" />
+    <Folder Include="Source\APhysicsEngine\3D\" />
+    <Folder Include="Source\APhysicsEngine\1Auxiliary\3D\" />
+    <Folder Include="Source\Engine\2D\" />
+    <Folder Include="Source\Engine\3D\" />
   </ItemGroup>
 </Project>

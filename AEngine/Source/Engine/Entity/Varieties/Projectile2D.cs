@@ -1,4 +1,6 @@
-﻿namespace AEngine;
+﻿using AEngine.Source.Engine.Entity.GameObject;
+
+namespace AEngine;
 
 public class Projectile2D : Basic2D
 {
@@ -22,16 +24,16 @@ public class Projectile2D : Basic2D
 		dead = false;
 
 		direction = Vector2.Normalize(target - position);
-		rotation = MathF.Atan2(direction.Y, direction.X);
+		transform.rotation = MathF.Atan2(direction.Y, direction.X);
 
 		_timer = new(lifetime);
 	}
 
 	public virtual void Update(List<IHittable> targets)
 	{
-		Tick = (float)Global.GameTime.ElapsedGameTime.TotalSeconds;
+		Tick = (float)Main.GameTime.ElapsedGameTime.TotalSeconds;
 		velocity = direction * Tick;
-		position += velocity * speed;
+		transform.position += velocity * speed;
 
 		_timer.Update();
 		if (_timer.Test())
@@ -42,7 +44,7 @@ public class Projectile2D : Basic2D
 	{
 		foreach (var target in targets)
 		{
-			if (Vector2.Distance(position, target.position) < target.hitDistance)
+			if (Vector2.Distance(transform.position, target.position) < target.hitDistance)
 			{
 				target.Hit();
 				dead = true;

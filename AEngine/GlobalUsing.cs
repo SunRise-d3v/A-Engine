@@ -7,6 +7,7 @@ global using System.Text;
 global using System.Threading.Tasks;
 global using System.Runtime.CompilerServices;
 global using System.Diagnostics.CodeAnalysis;
+global using System.Runtime.InteropServices;
 global using System.IO;
 #endregion
 
@@ -23,4 +24,5 @@ global using AEngine.Input;
 //global using static AEngine.Global;
 global using AEngine.UI;
 global using AEngine.Physics;
+global using static AEngine.Random;
 #endregion

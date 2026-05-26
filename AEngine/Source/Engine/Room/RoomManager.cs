@@ -12,7 +12,7 @@ public static class RoomManager
 			throw new InvalidOperationException($"Room '{room.name}' already registered.");
 
 		room.Load();
-		_allRooms[room.name] = room;
+        _allRooms[room.name] = room;
 	}
 
 	// Открыть комнату по имени

@@ -1,4 +1,6 @@
-﻿namespace AEngine;
+﻿using AEngine.Source.Engine.Entity.GameObject;
+
+namespace AEngine;
 
 public class Character2D : Basic2D
 {
@@ -15,10 +17,10 @@ public class Character2D : Basic2D
 
 	public virtual Vector2 RadialMovement(Vector2 focus)
 	{
-		float distance = Vector2.Distance(position, focus);
+		float distance = Vector2.Distance(transform.position, focus);
 		if (distance <= speed)
-			return focus - position;
+			return focus - transform.position;
 
-		return (focus - position) * speed / distance;
+		return (focus - transform.position) * speed / distance;
 	}
 }

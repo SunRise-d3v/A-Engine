@@ -1,8 +1,8 @@
 ﻿namespace AEngine;
 
-public static class RandomHelper
+public static class Random
 {
-	private static Random _rand = new();
+	private static System.Random _rand = new();
 
 	#region Seed
 	private static long _seed;
@@ -18,12 +18,12 @@ public static class RandomHelper
 	{
 		long guid = BitConverter.ToInt64(Guid.NewGuid().ToByteArray(), 0);
 		_seed = Math.Abs(guid) % 90_000_000_000L + 10_000_000_000L;
-		_rand = new Random((int)_seed);
+        _rand = new System.Random((int)_seed);
 	}
 	public static void SetSeed(long seed)
 	{
 		_seed = seed;
-		_rand = new Random((int)seed);
+        _rand = new System.Random((int)seed);
 	}
 	#endregion
 
@@ -130,7 +130,7 @@ public static class RandomHelper
 		=> new Vector2(RandomFloat(x, x + width), RandomFloat(y, y + height));
 
 	/// <summary> Случайный цвет </summary>
-	public static Color RandomColor(Random rand)
+	public static Color RandomColor(System.Random rand)
 	{
 		Color result = new Color((float)rand.NextDouble(), (float)rand.NextDouble(), (float)rand.NextDouble());
 		return result;
