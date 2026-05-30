@@ -1,7 +1,6 @@
-﻿using AEngine.Source.Engine.Entity.GameObject;
+﻿namespace AEngine;
 
-namespace AEngine;
-
+public enum Window_Resolution { Small, Medium, High };
 public partial class Core : Game
 {
     #region Xna
@@ -32,12 +31,13 @@ public partial class Core : Game
 
     private Rectangle _renderDestination;
     private bool _isResizing;
+    private bool _resolution;
     #endregion
 
     public Camera MainCamera;
 
     public Core(string title, int width, int height,
-        bool fullScreen = false, bool vSync = true, bool mouseVisible = true)
+        bool fullScreen = false, bool resolution = false, bool vSync = true, bool mouseVisible = true)
     {
         if (s_instance != null)
             throw new InvalidOperationException($"Only a single Core instance can be created");
@@ -46,6 +46,7 @@ public partial class Core : Game
 
         IsFixedTimeStep = false;
         _vSync = vSync;
+        _resolution = resolution;
 
         Graphics = new GraphicsDeviceManager(this);
         _fixedGameTime = new(FIXED_STEP);
@@ -91,8 +92,6 @@ public partial class Core : Game
 
         _renderTarget = new(GraphicsDevice, Main.WindowWidth, Main.WindowHeight);
         CalculateRenderDestination();
-
-        Component.StartComponent();
     }
 
     protected override void UnloadContent()
@@ -146,15 +145,12 @@ public partial class Core : Game
             _cursor.transform.position = Main.Mouse.Position;
 
         RoomManager.Update();
-        Component.UpdateComponent();
-        Component.ClearDestroyList();
         base.Update(time);
     }
 
     protected virtual void FixedUpdate(FixedGameTime deltaTime)
     {
         RoomManager.FixedUpdate();
-        Component.FixedUpdateComponent();
 
         Main.FixedGameTime = deltaTime;
         _world?.Step(deltaTime, COLLISION_ITERATION);

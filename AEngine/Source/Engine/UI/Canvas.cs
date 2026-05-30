@@ -1,6 +1,6 @@
 ﻿namespace AEngine.UI;
 
-internal static class Canvas
+public static class Canvas
 {
     public static SpriteFont font =
         Main.Content.Load<SpriteFont>("Fonts/Arial");

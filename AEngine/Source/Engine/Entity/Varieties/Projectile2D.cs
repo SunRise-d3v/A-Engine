@@ -1,6 +1,4 @@
-﻿using AEngine.Source.Engine.Entity.GameObject;
-
-namespace AEngine;
+﻿namespace AEngine;
 
 public class Projectile2D : Basic2D
 {

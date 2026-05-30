@@ -50,5 +50,6 @@ public static class RoomManager
 	internal static void Update() => Current.Update();
 	internal static void FixedUpdate() => Current.FixedUpdate();
 	internal static void Draw() => Current.Draw();
-	internal static void UnLoadContent() => Current.UnLoad();
+    internal static void DrawUI() => (Current as Room)?.DrawUI();
+    internal static void UnLoadContent() => Current.UnLoad();
 }

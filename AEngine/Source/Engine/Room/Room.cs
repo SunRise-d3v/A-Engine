@@ -1,14 +1,65 @@
 ﻿namespace AEngine;
 
-public interface IRoom
+public abstract class Room : IRoom
 {
-	public string name { get; }
+    private readonly List<Component> _components = new();
+    private readonly List<Component> _pendingDestroy = new();
 
-	public void Load();
-	public virtual void UnLoad(){}
+    public abstract string name { get; }
 
-	public void Update();
-	public virtual void FixedUpdate(){}
+    // Добавить компонент в комнату
+    protected T Add<T>(T component) where T : Component
+    {
+        component.Owner = this;
+        _components.Add(component);
+        component.Start();
+        return component;
+    }
 
-	public void Draw();
+    internal void ScheduleDestroy(Component component)
+        => _pendingDestroy.Add(component);
+
+    // Уничтожить не персистентные компоненты при выходе
+    public virtual void UnLoad()
+    {
+        foreach (var component in _components.ToList())
+            if (!component.IsPersistent)
+            {
+                component.Destroy();
+                _components.Remove(component);
+            }
+        _pendingDestroy.Clear();
+    }
+
+    public abstract void Load();
+
+    public virtual void Update()
+    {
+        foreach (var component in _components.ToList())
+            component.Update();
+
+        foreach (var component in _pendingDestroy)
+            _components.Remove(component);
+        _pendingDestroy.Clear();
+    }
+
+    public virtual void FixedUpdate()
+    {
+        foreach (var component in _components)
+            component.FixedUpdate();
+    }
+
+    public virtual void Draw()
+    {
+        foreach (var component in _components)
+            if (!component.IsUI)
+                component.Draw();
+    }
+
+    public virtual void DrawUI()
+    {
+        foreach (var component in _components)
+            if (component.IsUI)
+                component.Draw();
+    }
 }

@@ -64,5 +64,22 @@ public partial class Core
             _isResizing = false;
         }
     }
+
+    private void SetWindowSize(Window_Resolution resolution)
+    {
+        (int width, int height) = resolution switch
+        {
+            Window_Resolution.Small => (320, 240),
+            Window_Resolution.Medium => (640, 480),
+            Window_Resolution.High => (1280, 720),
+            _ => throw new ArgumentOutOfRangeException(nameof(resolution))
+        };
+
+        Main.WindowWidth = width;
+        Main.WindowHeight = height;
+        Graphics.PreferredBackBufferWidth = width;
+        Graphics.PreferredBackBufferHeight = height;
+        Graphics.ApplyChanges();
+    }
     #endregion
 }
