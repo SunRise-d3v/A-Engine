@@ -145,14 +145,17 @@ public partial class Core : Game
             _cursor.transform.position = Main.Mouse.Position;
 
         RoomManager.Update();
+        Component.UpdateComponent();
+
         base.Update(time);
     }
 
     protected virtual void FixedUpdate(FixedGameTime deltaTime)
     {
-        RoomManager.FixedUpdate();
-
         Main.FixedGameTime = deltaTime;
         _world?.Step(deltaTime, COLLISION_ITERATION);
+
+        RoomManager.FixedUpdate();
+        Component.FixedUpdateComponent();
     }
 }

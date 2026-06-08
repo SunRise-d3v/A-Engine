@@ -21,6 +21,7 @@ public partial class Core
             SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone, transformMatrix: MainCamera.transform);
 
         RoomManager.Draw();
+        Component.DrawComponent();
 
         Main.SpriteBatch.End();
     }
@@ -46,7 +47,7 @@ public partial class Core
         if (_customMouseVisible)
             _cursor.Draw();
 
-        RoomManager.DrawUI();
+        Component.DrawUIComponent();
 
         Main.SpriteBatch.End();
     }

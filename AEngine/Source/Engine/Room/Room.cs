@@ -1,6 +1,6 @@
 ﻿namespace AEngine;
 
-public abstract class Room : IRoom
+/*public abstract class Room : IRoom
 {
     private readonly List<Component> _components = new();
     private readonly List<Component> _pendingDestroy = new();
@@ -62,4 +62,4 @@ public abstract class Room : IRoom
             if (component.IsUI)
                 component.Draw();
     }
-}
+}*/

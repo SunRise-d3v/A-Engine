@@ -11,9 +11,7 @@ public static class Random
 		get => _seed;
 		private set => _seed = value;
 	}
-	#endregion
 
-	#region Seed
 	public static void GenerateSeed()
 	{
 		long guid = BitConverter.ToInt64(Guid.NewGuid().ToByteArray(), 0);
